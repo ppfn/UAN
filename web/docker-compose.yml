@@ -1,0 +1,25 @@
+version: '3'
+services:
+  apache:
+    build: ./apache
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 80:80
+    volumes:
+      - ./src/public/:/var/www/public/
+      - ./src/intranet/:/var/www/intranet/
+    depends_on:
+      - php
+  php:
+    image: php:7.2-fpm-alpine
+    networks:
+      - backend
+    volumes:
+      - ./src/public/:/var/www/public/
+      - ./src/intranet/:/var/www/intranet/
+
+networks:
+  frontend:
+  backend:
