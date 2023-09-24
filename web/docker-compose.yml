@@ -8,8 +8,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./src/public/:/var/www/public/
-      - ./src/intranet/:/var/www/intranet/
+      - ./html/:/var/www/html
     depends_on:
       - php
   php:
@@ -17,8 +16,30 @@ services:
     networks:
       - backend
     volumes:
-      - ./src/public/:/var/www/public/
-      - ./src/intranet/:/var/www/intranet/
+      - ./html/:/var/www/html/
+  db:
+    image: mariadb:10.3
+    networks:
+      - backend
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: root?2023
+      MARIADB_DATABASE: UAN
+      MARIADB_USER: dbuser
+      MARIADB_PASSWORD: dbuser?2023
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    networks:
+      - backend
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root?2023
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbuser?2023
+      MYSQL_DATABASE: UAN
 
 networks:
   frontend:
