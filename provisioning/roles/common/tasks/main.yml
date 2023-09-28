@@ -1,0 +1,23 @@
+---
+- name: Print information about the target host
+  debug:
+    msg: 
+      - "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+      - "OS Family: {{ ansible_os_family }}"
+      - "Architecture: {{ ansible_architecture }}"
+      - "Hostname: {{ ansible_hostname }}"
+      - "IP Address: {{ ansible_default_ipv4.address }}"
+      - "CPU Cores: {{ ansible_processor_cores }}"
+      - "Memory: {{ ansible_memtotal_mb }} MB"
+
+
+- name: Install common packages on Debian
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - "nano"
+    - "curl"
+    - "wget"
+  when: ansible_os_family == 'Debian'

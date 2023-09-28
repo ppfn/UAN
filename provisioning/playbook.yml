@@ -1,0 +1,4 @@
+---
+- import_playbook: dockerhosts.yml
+- import_playbook: adservers.yml
+#- import_playbook: monitoring.yml

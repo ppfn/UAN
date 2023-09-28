@@ -1,0 +1,12 @@
+---
+- name: Install Docker Engine on Debian
+  apt:
+    name: "docker.io"
+    state: present
+    update_cache: yes
+    
+- name: Install docker-compose on Debian
+  apt:
+    name: "docker-compose"
+    state: present
+    update_cache: yes

@@ -1,0 +1,8 @@
+---
+- name: Install git on Debian
+  import_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Install git on Windows
+  import_tasks: windows.yml
+  when: ansible_os_family == 'Windows'

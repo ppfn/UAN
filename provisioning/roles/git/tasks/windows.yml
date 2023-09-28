@@ -1,0 +1,5 @@
+---
+- name: Install git on Windows
+  win_chocolatey:
+    name: git
+    state: present
