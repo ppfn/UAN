@@ -1,5 +1,4 @@
 - hosts: dockerhosts
-  become: yes
   roles:
     - common
     - docker

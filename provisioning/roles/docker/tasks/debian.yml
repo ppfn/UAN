@@ -1,11 +1,13 @@
 ---
 - name: Install Docker Engine on Debian
+  become: yes
   apt:
     name: "docker.io"
     state: present
     update_cache: yes
     
 - name: Install docker-compose on Debian
+  become: yes
   apt:
     name: "docker-compose"
     state: present
