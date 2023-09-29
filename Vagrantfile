@@ -27,7 +27,8 @@ Vagrant.configure("2") do |config|
     ansible.groups = {
       "adservers" => ["WS-01", "WS-02"],
       "docker_webservers" => ["LS-01"],
-      "dockerhosts:children" => ["docker_webservers", "docker_monitoring"]
+      "docker_dnsservers" => ["LS-01"],
+      "dockerhosts:children" => ["docker_webservers", "docker_dnsservers", "docker_monitoring"]
     }
   end
 

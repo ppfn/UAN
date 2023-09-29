@@ -11,3 +11,8 @@
   hosts: docker_webservers
   roles:
     - webserver
+
+- name: Provision docker dnsserver
+  hosts: docker_dnsservers
+  roles:
+    - dnsserver

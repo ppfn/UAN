@@ -37,4 +37,6 @@ services:
 
 networks:
   {{ frontend_docker_network }}:
+    external: true
   {{ backend_docker_network }}:
+    external: true

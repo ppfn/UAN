@@ -1,0 +1,5 @@
+---
+- name: Ensure bind9 is not installed
+  apt:
+    name: bind9
+    state: absent

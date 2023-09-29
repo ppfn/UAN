@@ -1,6 +1,4 @@
-frontend_docker_network: frontend
-backend_docker_network: backend
-
+---
 php_apache_image: php:8.2-apache
 php_apache_src_dir: /home/{{ ansible_user }}/web/html/
 php_apache_port: 80

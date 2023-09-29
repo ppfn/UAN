@@ -32,5 +32,15 @@
     state: started
     enabled: yes
 
+- name: Create backend network
+  docker_network:
+    name: "{{ backend_docker_network }}"
+    state: present
+
+- name: Create frontend network
+  docker_network:
+    name: "{{ frontend_docker_network }}"
+    state: present
+
 
 

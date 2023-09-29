@@ -2,6 +2,14 @@
 - include_tasks: setup-debian.yml
   when: ansible_os_family == 'Debian'
 
+- name: Create web directory
+  file:
+    path: "/home/{{ ansible_user }}/web"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
 - name: Copy src files
   copy:
     src: html
@@ -19,7 +27,7 @@
     group: "{{ ansible_user }}"
     mode: 0644
 
-- name: Ensure no webserver containers are running
+- name: Ensure no previous webserver containers are running
   docker_compose:
     project_src: /home/{{ ansible_user }}/web
     state: absent
