@@ -1,7 +1,0 @@
----
-- name: Install git on Debian
-  become: yes
-  apt:
-    name: "git"
-    state: present
-    update_cache: yes

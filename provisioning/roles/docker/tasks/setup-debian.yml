@@ -1,0 +1,36 @@
+---
+- name: Ensure old versions of Docker are not installed
+  apt:
+    name:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+    state: absent
+    update_cache: yes
+
+- name: Ensure dependencies are installed
+  apt:
+    name: 
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "curl"
+      - "gnupg2"
+      - "software-properties-common"
+    state: present
+    update_cache: yes
+  when: docker_add_repository | bool
+
+- name: Add Docker GPG key
+  apt_key:
+    url: "{{ docker_gpg_key_url }}"
+    state: present
+  when: docker_add_repository | bool
+
+- name: Add Docker repository
+  apt_repository:
+    repo: deb [arch=amd64] {{ docker_repository_url }} {{ ansible_distribution_release }} stable
+    state: present
+    update_cache: true
+  when: docker_add_repository | bool

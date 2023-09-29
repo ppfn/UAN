@@ -1,8 +1,36 @@
 ---
-- name: Install Docker on Debian
-  import_tasks: debian.yml
+- include_tasks: setup-debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: Install Docker on Windows
-  import_tasks: windows.yml
-  when: ansible_os_family == 'Windows'
+- name: Install Docker packages
+  package: 
+    name: "{{ docker_packages }}"
+    state: "{{ docker_packages_state }}"
+  notify: restart docker
+
+- name: Install docker-compose
+  package:
+    name: "{{ docker_compose_package }}"
+    state: "{{ docker_compose_package_state }}"
+  notify: restart docker
+
+- name: Ensure docker group exists
+  group:
+    name: docker
+    state: present
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+  notify: restart docker
+
+- name: Ensure docker is running and enabled
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+
+

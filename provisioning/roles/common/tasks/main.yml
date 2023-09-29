@@ -12,13 +12,11 @@
 
 
 - name: Install common packages on Debian
-  become: yes
   apt:
-    name: "{{ item }}"
+    name:
+    - nano
+    - curl
+    - wget
     state: present
     update_cache: yes
-  loop:
-    - "nano"
-    - "curl"
-    - "wget"
   when: ansible_os_family == 'Debian'
