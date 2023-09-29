@@ -1,0 +1,7 @@
+---
+- name: Ensure Apache or Nginx is not installed
+  apt:
+    name:
+      - apache2
+      - nginx
+    state: absent

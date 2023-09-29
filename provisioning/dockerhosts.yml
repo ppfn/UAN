@@ -1,6 +1,13 @@
-- hosts: dockerhosts
+---
+- name: Provision docker hosts
+  hosts: dockerhosts
   become: yes
   roles:
     - common
     - docker
     - git
+
+- name: Provision docker webservers
+  hosts: docker_webservers
+  roles:
+    - webserver

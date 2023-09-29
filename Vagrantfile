@@ -26,7 +26,8 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.groups = {
       "adservers" => ["WS-01", "WS-02"],
-      "dockerhosts" => ["LS-01"]
+      "docker_webservers" => ["LS-01"],
+      "dockerhosts:children" => ["docker_webservers", "docker_monitoring"]
     }
   end
 

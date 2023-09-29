@@ -1,0 +1,40 @@
+version: '3'
+services:
+  php-apache:
+    image: {{ php_apache_image }}
+    networks:
+      - {{ frontend_docker_network }}
+      - {{ backend_docker_network }}
+    ports:
+        - {{ php_apache_port }}:80
+    volumes:
+      - {{ php_apache_src_dir }}:/var/www/
+    
+  db:
+    image: {{ db_image_name }}
+    networks:
+      - {{ backend_docker_network }}
+    volumes:
+      - {{ db_files_dir }}:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: {{ db_root_password }}
+      MARIADB_USER: {{ db_user }}
+      MARIADB_PASSWORD: {{ db_password }}
+      MARIADB_DATABASE: {{ db_name }}
+
+  phpmyadmin:
+    image: {{ phpmyadmin_image_name }}
+    networks:
+      - {{ backend_docker_network }}
+    ports:
+      - {{ phpmyadmin_port }}:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: {{ db_root_password }}
+      MYSQL_USER: {{ db_user }}
+      MYSQL_PASSWORD: {{ db_password }}
+      MYSQL_DATABASE: {{ db_name }}
+
+networks:
+  {{ frontend_docker_network }}:
+  {{ backend_docker_network }}:
