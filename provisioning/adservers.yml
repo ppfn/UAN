@@ -1,3 +1,4 @@
 - hosts: adservers
+  become: yes
   roles:
     - common
