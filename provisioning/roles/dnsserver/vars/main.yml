@@ -1,5 +1,0 @@
----
-bind_image: ubuntu/bind9
-bind_container_name: dns
-
-domain: urbanappnet.com

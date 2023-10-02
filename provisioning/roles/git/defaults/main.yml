@@ -1,5 +1,0 @@
----
-# List of git packages to install
-git_packages: git
-# State of the packages
-git_packages_state: present

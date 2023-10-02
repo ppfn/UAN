@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-PROVIDER = 'virtualbox'
-SUBNET = '192.168.56'
+PROVIDER = 'hyper-v'
+SUBNET = '192.168.100'
 
 
 Vagrant.configure("2") do |config|
@@ -25,9 +25,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.groups = {
-      "adservers" => ["WS-01", "WS-02"],
-      "docker_webservers" => ["LS-01"],
-      "docker_dhcpservers" => ["LS-01"],
+      "docker_webservers" => ["LS-01"]
       "dockerhosts:children" => ["docker_webservers", "docker_dnsservers", "docker_dhcpservers", "docker_monitoring"]
     }
   end

@@ -5,6 +5,7 @@ docker_packages:
   - "docker-ce-cli"
   - "docker-ce-rootless-extras"
   - "containerd.io"
+  - "python3-docker"
 # State of the packages
 docker_packages_state: present
 

@@ -12,7 +12,7 @@
   roles:
     - webserver
 
-- name: Provision docker dnsserver
-  hosts: docker_dnsservers
-  roles:
-    - dnsserver
+# - name: Provision docker dhcpserver
+#   hosts: docker_dhcpservers
+#   roles:
+#     - dhcpserver

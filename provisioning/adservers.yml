@@ -1,5 +1,0 @@
-- name: Provision ad servers
-  hosts: adservers
-  become: yes
-  roles:
-    - common
