@@ -11,8 +11,8 @@
 
 - name: Install docker-compose
   package:
-    name: "{{ docker_compose_package }}"
-    state: "{{ docker_compose_package_state }}"
+    name: "{{ docker_compose_packages }}"
+    state: "{{ docker_compose_packages_state }}"
   notify: restart docker
 
 - name: Ensure docker group exists

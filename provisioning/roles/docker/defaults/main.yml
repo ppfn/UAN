@@ -10,9 +10,11 @@ docker_packages:
 docker_packages_state: present
 
 # Package name for docker-compose
-docker_compose_package: docker-compose-plugin
+docker_compose_packages:
+  - docker-compose
+  - docker-compose-plugin
 # State of the package
-docker_compose_package_state: present
+docker_compose_packages_state: present
 
 # Add docker repository
 docker_add_repository: true
