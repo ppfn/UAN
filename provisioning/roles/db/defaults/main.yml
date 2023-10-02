@@ -3,6 +3,7 @@ db_files_dir: /home/{{ ansible_user }}/db/
 db_root_password: root
 db_user: dbuser
 db_password: dbpassword
+db_port: 3306
 
 phpmyadmin_image_name: phpmyadmin/phpmyadmin:latest
 phpmyadmin_port: 8081
