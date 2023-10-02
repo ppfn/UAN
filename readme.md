@@ -27,7 +27,9 @@ LINUX_PCS_BOX = 'debian/bookworm64' # The box used for the Linux PCs
 vagrant up --provider=<PROVIDER>
 ```
 Where `<PROVIDER>` is the provider specified in the Vagrantfile (e.g. `hyperv` or `virtualbox`).
+
 :warning: The first time you run this command, it will take a while to download the boxes.
+
 :warning: If you are using Hyper-V, you need to run this command as administrator !
 
 ### 4. You can provision the virtual machines if needed
