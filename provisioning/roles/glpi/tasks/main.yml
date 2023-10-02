@@ -1,0 +1,27 @@
+---
+- name: Create glpi directory
+  file:
+    path: "/home/{{ ansible_user }}/glpi"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
+- name: Create the docker-compose.yml file
+  template:
+    src: docker-compose.yml.j2
+    dest: /home/{{ ansible_user }}/glpi/docker-compose.yml
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
+
+- name: Ensure no previous glpi containers are running
+  docker_compose:
+    project_src: /home/{{ ansible_user }}/glpi
+    state: absent
+
+- name: Bring up the glpi containers
+  docker_compose:
+    project_src: /home/{{ ansible_user }}/glpi
+    state: present
+    build: yes

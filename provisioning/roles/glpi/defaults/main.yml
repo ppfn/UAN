@@ -1,0 +1,12 @@
+---
+
+glpi_image_name: diouxx/glpi
+glpi_port: 8081
+glpi_src_dir: /home/{{ ansible_user }}/glpi/html/
+
+db_image_name: mariadb
+db_files_dir: /home/{{ ansible_user }}/glpi/db/
+db_root_password: root
+db_user: dbuser
+db_password: dbpassword
+db_name: db_glpi

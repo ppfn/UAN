@@ -5,13 +5,6 @@
   roles:
     - common
     - docker
-
-- name: Provision docker webservers
-  hosts: all
-  roles:
     - webserver
-
-# - name: Provision docker dhcpserver
-#   hosts: docker_dhcpservers
-#   roles:
-#     - dhcpserver
+    - glpi
+#   - dhcpserver
