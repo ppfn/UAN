@@ -22,26 +22,4 @@ Vagrant.configure("2") do |config|
     end
   end
 
-
-  config.vm.provision :ansible do |ansible|
-    ansible.playbook = "provisioning/playbook.yml"
-    ansible.groups = {
-      "docker_webservers" => ["LS-01"],
-      "dockerhosts:children" => ["docker_webservers", "docker_dnsservers", "docker_dhcpservers", "docker_monitoring"]
-    }
-  end
-
-  # PC-01 Test machine
-  config.vm.define "PC-01" do |pc01|
-    pc01.vm.box = "#{LINUX_PCS_BOX}"
-    pc01.vm.hostname = "PC-01"
-    pc01.vm.network "private_network", type: "dhcp"
-    
-    pc01.vm.provider "#{PROVIDER}" do |vb|
-      vb.name = "PC-01"
-      vb.memory = "1024"
-      vb.cpus = "1"
-    end
-  end
-
 end
