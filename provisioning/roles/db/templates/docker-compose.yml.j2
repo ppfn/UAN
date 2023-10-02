@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: {{ mariadb_image }}
+    image: {{ db_image_name }}
     networks:
       - {{ frontend_docker_network }}
       - {{ backend_docker_network }}
@@ -19,7 +19,6 @@ services:
       MYSQL_ROOT_PASSWORD: {{ db_root_password }}
       MYSQL_USER: {{ db_user }}
       MYSQL_PASSWORD: {{ db_password }}
-      MYSQL_DATABASE: {{ db_name }}
 
 
 networks:
