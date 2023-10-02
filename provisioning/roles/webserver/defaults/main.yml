@@ -2,13 +2,3 @@
 php_apache_image: php:8.2-apache
 php_apache_src_dir: /home/{{ ansible_user }}/web/html/
 php_apache_port: 80
-
-db_image_name: mariadb
-db_files_dir: /home/{{ ansible_user }}/web/db/
-db_root_password: root
-db_user: dbuser
-db_password: dbpassword
-db_name: db_urbanappnet
-
-phpmyadmin_image_name: phpmyadmin/phpmyadmin:latest
-phpmyadmin_port: 8080

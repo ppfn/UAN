@@ -1,0 +1,8 @@
+db_image_name: mariadb
+db_files_dir: /home/{{ ansible_user }}/db/
+db_root_password: root
+db_user: dbuser
+db_password: dbpassword
+
+phpmyadmin_image_name: phpmyadmin/phpmyadmin:latest
+phpmyadmin_port: 8081

@@ -1,17 +1,6 @@
 version: "3.8"
 
 services:
-  db:
-    image: {{ db_image_name }}
-    networks:
-      - {{ backend_docker_network }}
-    volumes:
-      - {{ db_files_dir }}:/var/lib/mysql
-    environment:
-      MARIADB_ROOT_PASSWORD: {{ db_root_password }}
-      MARIADB_USER: {{ db_user }}
-      MARIADB_PASSWORD: {{ db_password }}
-      MARIADB_DATABASE: {{ db_name }}
 
   glpi:
     image: {{ glpi_image_name }}
