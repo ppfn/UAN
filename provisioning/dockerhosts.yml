@@ -5,6 +5,7 @@
   roles:
     - common
     - docker
+    - db
     - webserver
     - glpi
 #   - dhcpserver
