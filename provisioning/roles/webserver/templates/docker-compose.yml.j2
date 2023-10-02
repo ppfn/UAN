@@ -9,6 +9,7 @@ services:
         - {{ php_apache_port }}:80
     volumes:
       - {{ php_apache_src_dir }}:/var/www/
+    restart: always
 
 
 networks:

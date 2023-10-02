@@ -6,6 +6,7 @@ services:
       - {{ backend_docker_network }}
     volumes:
       - {{ mariadb_src_dir }}:/var/lib/mysql
+    restart: always
 
   phpmyadmin:
     image: {{ phpmyadmin_image_name }}
@@ -19,7 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: {{ db_root_password }}
       MYSQL_USER: {{ db_user }}
       MYSQL_PASSWORD: {{ db_password }}
-
+    restart: always
 
 networks:
   {{ frontend_docker_network }}:
