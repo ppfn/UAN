@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-PROVIDER = 'hyper-v'
+PROVIDER = 'hyperv'
 SUBNET = '192.168.100'
 LINUX_SERVERS_BOX = 'debian/bookworm64'
 LINUX_PC_BOX = 'debian/bookworm64'
