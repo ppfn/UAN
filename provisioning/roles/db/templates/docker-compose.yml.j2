@@ -3,7 +3,6 @@ services:
   db:
     image: {{ db_image_name }}
     networks:
-      - {{ frontend_docker_network }}
       - {{ backend_docker_network }}
     volumes:
       - {{ mariadb_src_dir }}:/var/lib/mysql
@@ -11,6 +10,7 @@ services:
   phpmyadmin:
     image: {{ phpmyadmin_image_name }}
     networks:
+      - {{ frontend_docker_network }}
       - {{ backend_docker_network }}
     ports:
       - {{ phpmyadmin_port }}:80
