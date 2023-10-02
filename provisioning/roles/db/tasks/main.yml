@@ -7,6 +7,14 @@
     group: "{{ ansible_user }}"
     mode: 0755
 
+- name: Copy init.sql file
+  copy:
+    src: init.sql
+    dest: /home/{{ ansible_user }}/db/init.sql
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
+
 - name: Create the docker-compose.yml file
   template:
     src: docker-compose.yml.j2
