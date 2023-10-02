@@ -4,8 +4,15 @@ services:
     image: {{ db_image_name }}
     networks:
       - {{ backend_docker_network }}
+    ports:
+      - {{ db_port }}:3306
     volumes:
       - {{ db_files_dir }}:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: {{ db_root_password }}
+      MYSQL_USER: {{ db_user }}
+      MYSQL_PASSWORD: {{ db_password }}
+      
     restart: always
 
   phpmyadmin:
