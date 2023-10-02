@@ -4,7 +4,7 @@
 PROVIDER = 'hyperv'
 SUBNET = '192.168.100'
 LINUX_SERVERS_BOX = 'debian/bookworm64'
-LINUX_PC_BOX = 'debian/bookworm64'
+LINUX_PCS_BOX = 'debian/bookworm64'
 
 Vagrant.configure("2") do |config|
 
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
 
   # PC-01 Test machine
   config.vm.define "PC-01" do |pc01|
-    pc01.vm.box = "#{LINUX_PC_BOX}"
+    pc01.vm.box = "#{LINUX_PCS_BOX}"
     pc01.vm.hostname = "PC-01"
     pc01.vm.network "private_network", type: "dhcp"
     
