@@ -5,7 +5,6 @@
   roles:
     - common
     - docker
-    - git
 
 - name: Provision docker webservers
   hosts: docker_webservers
