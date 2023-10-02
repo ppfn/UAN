@@ -16,7 +16,6 @@ git clone https://github.com/ppfn/UAN.git
 ### 2. Modify the Vagrantfile if needed
 ```ruby
 [...]
-PROVIDER = 'hyperv' # 'virtualbox' or 'hyperv'
 SUBNET = '192.168.100' # The subnet used by the virtual machines
 LINUX_SERVERS_BOX = 'debian/bookworm64' # The box used for the Linux servers
 LINUX_PCS_BOX = 'debian/bookworm64' # The box used for the Linux PCs
@@ -25,15 +24,12 @@ LINUX_PCS_BOX = 'debian/bookworm64' # The box used for the Linux PCs
 
 ### 3. Start the virtual machines
 ```bash
-vagrant up --provider=<PROVIDER>
+vagrant up
 ```
-Where `<PROVIDER>` is the provider specified in the Vagrantfile (e.g. `hyperv` or `virtualbox`).
 
 :warning: The first time you run this command, it will take a while to download the boxes.
 
-:warning: If you are using Hyper-V:
-- You need to run the command as administrator
-- Network configuration is not supported yet, so you need to manually configure the network interfaces of the virtual machines
+:warning: The Vagrantfile is set to use a public network for the virtual machine. This network has to be configured beforehand.
 
 ### 4. You can provision the virtual machines if needed
 ```bash
