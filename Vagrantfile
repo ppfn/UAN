@@ -21,12 +21,6 @@ Vagrant.configure("2") do |config|
       vb.cpus = "1"
     end
 
-    ls01.vm.provider "hyperv" do |hv|
-      hv.vmname = "LS-01"
-      hv.memory = "1024"
-      hv.cpus = "1"
-      hv.enable_enhanced_session_mode = true
-    end
 
   end
 
