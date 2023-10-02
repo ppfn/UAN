@@ -15,12 +15,12 @@
     group: "{{ ansible_user }}"
     mode: 0644
 
-- name: Ensure no previous mariadb containers are running
+- name: Ensure no previous db containers are running
   docker_compose:
     project_src: /home/{{ ansible_user }}/db
     state: absent
 
-- name: Bring up the mariadb containers
+- name: Bring up the db containers
   docker_compose:
     project_src: /home/{{ ansible_user }}/db
     state: present
