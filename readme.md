@@ -30,7 +30,9 @@ Where `<PROVIDER>` is the provider specified in the Vagrantfile (e.g. `hyperv` o
 
 :warning: The first time you run this command, it will take a while to download the boxes.
 
-:warning: If you are using Hyper-V, you need to run this command as administrator !
+:warning: If you are using Hyper-V:
+- You need to run the command as administrator
+- Network configuration is not supported yet, so you need to manually configure the network interfaces of the virtual machines
 
 ### 4. You can provision the virtual machines if needed
 ```bash
