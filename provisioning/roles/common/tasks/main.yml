@@ -6,7 +6,7 @@
       - "OS Family: {{ ansible_os_family }}"
       - "Architecture: {{ ansible_architecture }}"
       - "Hostname: {{ ansible_hostname }}"
-      - "IP Address: {{ ansible_all_ipv4_addresses }}"
+      - "IP Addresses: {{ ansible_all_ipv4_addresses }}"
       - "CPU Cores: {{ ansible_processor_cores }}"
       - "Memory: {{ ansible_memtotal_mb }} MB"
 
