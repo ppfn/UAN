@@ -5,7 +5,7 @@ services:
     networks:
       - {{ backend_docker_network }}
     volumes:
-      - {{ mariadb_src_dir }}:/var/lib/mysql
+      - {{ db_files_dir }}:/var/lib/mysql
     restart: always
 
   phpmyadmin:
