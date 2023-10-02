@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
     ls01.vm.network "private_network", ip: "#{SUBNET}.21"
 
     ls01.vm.provider "#{PROVIDER}" do |vb|
-      vb.name = "LS-01"
+      vb.vmname = "LS-01"
       vb.memory = "1024"
       vb.cpus = "1"
     end
@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
     pc01.vm.network "private_network", type: "dhcp"
     
     pc01.vm.provider "#{PROVIDER}" do |vb|
-      vb.name = "PC-01"
+      vb.vmname = "PC-01"
       vb.memory = "1024"
       vb.cpus = "1"
     end
