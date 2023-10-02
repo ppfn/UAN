@@ -3,8 +3,8 @@
 
 PROVIDER = 'hyperv'
 SUBNET = '192.168.100'
-LINUX_SERVERS_BOX = 'debian/bookworm64'
-LINUX_PCS_BOX = 'debian/bookworm64'
+LINUX_SERVERS_BOX = 'generic/debian12'
+LINUX_PCS_BOX = 'generic/debian12'
 
 Vagrant.configure("2") do |config|
 
