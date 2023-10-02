@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.groups = {
-      "docker_webservers" => ["LS-01"]
+      "docker_webservers" => ["LS-01"],
       "dockerhosts:children" => ["docker_webservers", "docker_dnsservers", "docker_dhcpservers", "docker_monitoring"]
     }
   end
