@@ -15,6 +15,9 @@ services:
 
   glpi:
     image: {{ glpi_image_name }}
+    networks:
+      - {{ frontend_docker_network }}
+      - {{ backend_docker_network }}
     ports:
       - "{{ glpi_port }}:80"
     volumes:
@@ -22,3 +25,9 @@ services:
     environment:
       - TIMEZONE=Europe/Brussels
     restart: always
+    
+networks:
+  {{ frontend_docker_network }}:
+    external: true
+  {{ backend_docker_network }}:
+    external: true
