@@ -3,14 +3,15 @@
 
 PROVIDER = 'hyper-v'
 SUBNET = '192.168.100'
-
+LINUX_SERVERS_BOX = 'debian/bookworm64'
+LINUX_PC_BOX = 'debian/bookworm64'
 
 Vagrant.configure("2") do |config|
 
 
   # LS-01: Debian 12
   config.vm.define "LS-01" do |ls01|
-    ls01.vm.box = "debian/bookworm64"
+    ls01.vm.box = "#{LINUX_SERVERS_BOX}"
     ls01.vm.hostname = "LS-01"
     ls01.vm.network "private_network", ip: "#{SUBNET}.21"
 
@@ -32,7 +33,7 @@ Vagrant.configure("2") do |config|
 
   # PC-01 Test machine
   config.vm.define "PC-01" do |pc01|
-    pc01.vm.box = "debian/bookworm64"
+    pc01.vm.box = "#{LINUX_PC_BOX}"
     pc01.vm.hostname = "PC-01"
     pc01.vm.network "private_network", type: "dhcp"
     
