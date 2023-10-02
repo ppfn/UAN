@@ -12,3 +12,6 @@ db_name: db_urbanappnet
 
 phpmyadmin_image_name: phpmyadmin/phpmyadmin:latest
 phpmyadmin_port: 8080
+
+frontend_docker_network: frontend
+backend_docker_network: backend

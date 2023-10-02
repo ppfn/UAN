@@ -1,13 +1,13 @@
 ---
 - name: Provision docker hosts
-  hosts: dockerhosts
+  hosts: all
   become: yes
   roles:
     - common
     - docker
 
 - name: Provision docker webservers
-  hosts: docker_webservers
+  hosts: all
   roles:
     - webserver
 
