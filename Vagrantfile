@@ -13,10 +13,9 @@ Vagrant.configure("2") do |config|
     ls01.vm.box = "#{LINUX_SERVERS_BOX}"
     ls01.vm.hostname = "LS-01"
     ls01.vm.synced_folder ".", "/vagrant"
-    ls01.vm.network "private_network", ip: "#{SUBNET}.21"
-    
+    ls01.vm.network "public_network", ip: "#{SUBNET}.21"
+
     ls01.vm.provider "virtualbox" do |vb|
-      
       vb.name = "LS-01"
       vb.memory = "1024"
       vb.cpus = "1"
