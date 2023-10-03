@@ -14,7 +14,7 @@ git clone https://github.com/ppfn/UAN.git
 ### 2. Modify the Vagrantfile if needed
 ```ruby
 [...]
-SUBNET = '192.168.100' # The subnet used by the virtual machines
+SUBNET = '192.168.0' # The subnet used by the virtual machines
 LINUX_SERVERS_BOX = 'debian/bookworm64' # The box used for the Linux servers
 [...]
 ```
