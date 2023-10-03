@@ -1,6 +1,6 @@
 ---
-- name: Provision docker host
-  hosts: all
+- name: Provision the docker host
+  hosts: LS-01
   become: yes
   roles:
     - common
@@ -10,3 +10,11 @@
     - glpi
     - monitoring
 #   - dhcpserver
+
+# - name: Provision the second docker host
+#   hosts: LS-02
+#   become: yes
+#   roles:
+#     - common
+#     - docker
+#     - dhcpserver
