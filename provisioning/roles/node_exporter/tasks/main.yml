@@ -1,0 +1,11 @@
+---
+- name: Create installation script form template
+  template:
+    src: install.sh.j2
+    dest: /tmp/install.sh
+    mode: 0755
+
+- name: Install node_exporter
+  shell: /tmp/install.sh
+  args:
+    chdir: /tmp
