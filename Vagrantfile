@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
     ls01.vm.provider "virtualbox" do |vb|
       vb.name = "LS-01"
-      vb.memory = "1024"
+      vb.memory = "2048"
       vb.cpus = "1"
     end
 
