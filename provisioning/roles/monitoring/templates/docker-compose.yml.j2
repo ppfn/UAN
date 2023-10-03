@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  grafana:
+    image: {{ grafana_image_name }}
+    volumes:
+      - grafana-data:/var/lib/grafana
+    ports:
+      - {{ grafana_port }}:3000
+    networks:
+      - {{ frontend_docker_network }}
+
+  prometheus:
+    image: {{ prometheus_image_name }}
+    volumes:
+      - prometheus-data:/prometheus
+      - {{ prometheus_config_file }}:/etc/prometheus/prometheus.yml
+    ports:
+      - {{ prometheus_port }}:9090
+    networks:
+      - {{ frontend_docker_network }}
+      - {{ backend_docker_network }}
+
+volumes:
+  grafana-data:
+  prometheus-data:
+
+networks:
+  {{ frontend_docker_network }}:
+    external: true
+  {{ backend_docker_network }}:
+    external: true

@@ -1,0 +1,34 @@
+---
+- name: Create monitoring directory
+  file:
+    path: /home/{{ ansible_user }}/monitoring
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
+- name: Create docker-compose.yml file
+  template:
+    src: docker-compose.yml.j2
+    dest: /home/{{ ansible_user }}/monitoring/docker-compose.yml
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
+
+- name: Create prometheus.yml file
+  template:
+    src: prometheus.yml.j2
+    dest: /home/{{ ansible_user }}/monitoring/prometheus.yml
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
+
+- name: Ensure no previous containers are running
+  docker_compose:
+    project_src: /home/{{ ansible_user }}/monitoring
+    state: absent
+
+- name: Bring up monitoring containers
+  docker_compose:
+    project_src: /home/{{ ansible_user }}/monitoring
+    state: present

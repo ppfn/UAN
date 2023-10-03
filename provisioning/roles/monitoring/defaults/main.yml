@@ -1,0 +1,9 @@
+---
+grafana_image_name: grafana/grafana
+grafana_port: 3000
+
+prometheus_image_name: prom/prometheus
+prometheus_config_file: /home/{{ ansible_user }}/monitoring/prometheus.yml
+prometheus_port: 9090
+
+prometheus_monitor_name: dockerhosts monitoring
