@@ -16,7 +16,6 @@ git clone https://github.com/ppfn/UAN.git
 [...]
 SUBNET = '192.168.100' # The subnet used by the virtual machines
 LINUX_SERVERS_BOX = 'debian/bookworm64' # The box used for the Linux servers
-LINUX_PCS_BOX = 'debian/bookworm64' # The box used for the Linux PCs
 [...]
 ```
 
