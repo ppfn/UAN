@@ -5,8 +5,6 @@
 ### Prerequisites
 - [Vagrant](https://www.vagrantup.com/) 
 - [Git](https://git-scm.com/)
-- [Ansible](https://www.ansible.com/)
-- [Docker](https://www.docker.com/)
 
 ### 1. Clone the repository
 ```bash
