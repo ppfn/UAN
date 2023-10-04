@@ -1,7 +1,6 @@
 ---
 
 dhcp_image_name: networkboot/dhcpd
-dhcp_port: "53:53"
 dhcp_src_dir: /home/{{ ansible_user }}/dhcp/
 
 
