@@ -10,7 +10,7 @@
     - glpi
     - node_exporter
     - monitoring
-#   - dhcpserver
+    - dhcp
 
 # - name: Provision the second docker host
 #   hosts: LS-02
@@ -18,5 +18,4 @@
 #   roles:
 #     - common
 #     - docker
-#     - dhcpserver
 #     - node_exporter
