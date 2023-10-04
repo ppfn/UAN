@@ -1,12 +1,12 @@
-default-lease-time 86400;  
-max-lease-time 86400;
+default-lease-time {{ dhcp_default_lease_time }};  
+max-lease-time {{ dhcp_max_lease_time }};
 
 authoritative;
 
-subnet 192.168.0.0 netmask 255.255.255.0 {
-    range 192.168.0.50 192.168.0.100;
+subnet {{ dhcp_subnet }} netmask 255.255.255.0 {
+    range {{ dhcp_range_min }} {{ dhcp_range_max }};
 
-    option domain-name "urbanappnet.local";
-    option domain-name-servers 192.168.0.11, 192.168.0.12;
-    option routers 192.168.0.1;
+    option domain-name "{{ dhcp_domain }}";
+    option domain-name-servers {{ dhcp_dns1 }}, {{ dhcp_dns2 }};
+    option routers {{ dhcp_router }};
 }
