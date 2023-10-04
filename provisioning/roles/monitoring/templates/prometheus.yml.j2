@@ -16,17 +16,17 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:{{ prometheus_port }}']
 
-  - job_name: 'node'
+  - job_name: 'LS-01'
     scrape_interval: 10s
     static_configs:
       - targets: ['192.168.0.21:9100']
 
-  - job_name: 'WC-01'
+  - job_name: 'WS-01'
     scrape_interval: 10s
     static_configs:
       - targets: ['192.168.0.11:9182']
   
-  - job_name: 'WC-02'
+  - job_name: 'WS-02'
     scrape_interval: 10s
     static_configs:
       - targets: ['192.168.0.12:9182']
