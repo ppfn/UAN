@@ -4,8 +4,8 @@ dhcp_image_name: networkboot/dhcpd
 dhcp_src_dir: /home/{{ ansible_user }}/dhcp/
 
 
-dhcp_default_lease_time: 86400;
-dhcp_max_lease_time: 86400;
+dhcp_default_lease_time: 86400
+dhcp_max_lease_time: 86400
 dhcp_subnet: 192.168.0.0
 dhcp_range_min: 192.168.0.50
 dhcp_range_max: 192.168.0.100
