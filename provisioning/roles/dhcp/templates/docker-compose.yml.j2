@@ -5,6 +5,6 @@ services:
   dhcp:
     image: {{ dhcp_image_name }}
     volumes:
-      - {{ dhcp_src_dir }}/dhcp.conf:/data/dhcp.conf
+      - {{ dhcp_src_dir }}/dhcpd.conf:/data/dhcpd.conf
     restart: always
     network_mode: "host"
