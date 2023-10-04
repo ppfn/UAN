@@ -4,8 +4,6 @@ services:
 
   dhcp:
     image: {{ dhcp_image_name }}
-    ports:
-      - "53:53"
     volumes:
       - {{ dhcp_src_dir }}/dhcp.conf:/data/dhcp.conf
     restart: always
